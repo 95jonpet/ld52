@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://rt8cb7dcdl6s"]
+
+[ext_resource type="PackedScene" uid="uid://bpc6lp6yfyspt" path="res://robots/harvester/harvester.tscn" id="1_2n8hu"]
+[ext_resource type="Script" path="res://levels/level.gd" id="1_8suof"]
+[ext_resource type="PackedScene" uid="uid://cr7crsrmpjsxh" path="res://planning/slot/slot.tscn" id="1_f3gjq"]
+[ext_resource type="PackedScene" uid="uid://c8l8d0pfs1tmr" path="res://planning/marker/marker.tscn" id="2_3jysm"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_8suof")
+
+[node name="Harvester" parent="." instance=ExtResource("1_2n8hu")]
+position = Vector2(-40, 0)
+
+[node name="Grid" type="Node2D" parent="."]
+
+[node name="Slot4" parent="Grid" instance=ExtResource("1_f3gjq")]
+position = Vector2(24, 0)
+
+[node name="PlanningSlots" type="Node2D" parent="."]
+
+[node name="Slot2" parent="PlanningSlots" instance=ExtResource("1_f3gjq")]
+position = Vector2(24, 96)
+
+[node name="Marker2" parent="PlanningSlots" instance=ExtResource("2_3jysm")]
+position = Vector2(24, 96)

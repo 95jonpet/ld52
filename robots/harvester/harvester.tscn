@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpc6lp6yfyspt"]
+
+[ext_resource type="Script" path="res://robots/harvester/harvester.gd" id="1_30uqs"]
+[ext_resource type="Texture2D" uid="uid://uqi1pn2ghpwv" path="res://robots/harvester/harvester.png" id="1_jhx2j"]
+
+[node name="Harvester" type="CharacterBody2D"]
+script = ExtResource("1_30uqs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jhx2j")
