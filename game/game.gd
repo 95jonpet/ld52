@@ -23,7 +23,7 @@ func _goto_next_level() -> void:
 	var level_path := "res://levels/level_%02d.tscn" % _level_index
 
 	# Check if the completed level was the last level.
-	if not FileAccess.file_exists(level_path):
+	if not ResourceLoader.exists(level_path):
 		_level_index = 0
 		_goto_next_level()
 		return

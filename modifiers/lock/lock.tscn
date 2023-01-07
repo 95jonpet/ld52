@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://16hjbh7pbyi0"]
+
+[ext_resource type="Script" path="res://modifiers/lock/lock.gd" id="1_3sfe1"]
+[ext_resource type="Texture2D" uid="uid://jdvshqarubcu" path="res://modifiers/lock/lock.png" id="1_dqwav"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8c38"]
+size = Vector2(15, 15)
+
+[node name="Lock" type="StaticBody2D"]
+collision_layer = 4
+script = ExtResource("1_3sfe1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dqwav")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o8c38")
+
+[node name="Detector" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="DetectorCollisionShape" type="CollisionShape2D" parent="Detector"]
+shape = SubResource("RectangleShape2D_o8c38")
+
+[connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]

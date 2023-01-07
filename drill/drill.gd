@@ -47,7 +47,7 @@ func _on_head_move_requested(old_global_pos: Vector2, new_global_pos: Vector2) -
 
 	# Allow the drill to be retracted.
 	var last_node: Node2D = _body_nodes.back() if not _body_nodes.is_empty() else null
-	if last_node and last_node.global_position == new_global_pos:
+	if _head.can_retract_on_next_move and last_node and last_node.global_position == new_global_pos:
 		_body_nodes.pop_back()
 		last_node.queue_free()
 		_head.move_to_position(new_global_pos)
@@ -67,6 +67,7 @@ func _on_head_move_requested(old_global_pos: Vector2, new_global_pos: Vector2) -
 
 	_create_body(old_global_pos)
 	_head.move_to_position(new_global_pos)
+	_head.can_retract_on_next_move = true
 	Events.drill_moved.emit(self, old_global_pos, new_global_pos)
 	AudioPlayer.play(drill_moved)
 

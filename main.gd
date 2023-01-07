@@ -17,6 +17,18 @@ func _ready() -> void:
 	_game.start()
 
 
+func _input(event: InputEvent) -> void:
+	if not OS.is_debug_build():
+		return
+
+	if event.is_action_pressed("ui_text_backspace"):
+		get_tree().reload_current_scene()
+	if event.is_action_pressed("ui_accept"):
+		for ore in get_tree().get_nodes_in_group("Ore"):
+			ore.queue_free()
+		Events.level_completed.emit()
+
+
 func _on_camera_moved(camera: Camera, _old_pos: Vector2, new_pos: Vector2) -> void:
 	var subpixel_position: Vector2 = new_pos.round() - new_pos
 	camera.global_position = new_pos.round()

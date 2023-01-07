@@ -49,6 +49,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://levels/level/level.gd"
 }, {
+"base": "StaticBody2D",
+"class": &"Lock",
+"language": &"GDScript",
+"path": "res://modifiers/lock/lock.gd"
+}, {
 "base": "Node",
 "class": &"Main",
 "language": &"GDScript",
@@ -88,6 +93,7 @@ _global_script_class_icons={
 "Game": "",
 "Harvester": "",
 "Level": "",
+"Lock": "",
 "Main": "",
 "Marker": "res://planning/marker/marker.png",
 "NoClip": "",

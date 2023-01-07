@@ -5,6 +5,7 @@ extends CharacterBody2D
 signal move_requested(old_global_pos: Vector2, new_global_pos: Vector2)
 
 var can_move: bool = true
+var can_retract_on_next_move = true
 
 @onready var _ray: RayCast2D = $RayCast2D
 
