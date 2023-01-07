@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8l8d0pfs1tmr"]
+[gd_scene load_steps=5 format=3 uid="uid://c8l8d0pfs1tmr"]
 
 [ext_resource type="PackedScene" uid="uid://d52uca70xopq" path="res://common/draggable.tscn" id="1_texo2"]
 [ext_resource type="Texture2D" uid="uid://cwua8f1nkek2y" path="res://planning/marker/marker.png" id="2_k2etj"]
+[ext_resource type="Script" path="res://planning/marker/marker.gd" id="2_og02x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8j3md"]
 size = Vector2(15, 15)
 
 [node name="Marker" groups=["Markers"] instance=ExtResource("1_texo2")]
+script = ExtResource("2_og02x")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_k2etj")

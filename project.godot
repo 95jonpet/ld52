@@ -29,6 +29,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://levels/level.gd"
 }, {
+"base": "Draggable",
+"class": &"Marker",
+"language": &"GDScript",
+"path": "res://planning/marker/marker.gd"
+}, {
 "base": "DropArea",
 "class": &"Slot",
 "language": &"GDScript",
@@ -39,6 +44,7 @@ _global_script_class_icons={
 "DropArea": "",
 "Harvester": "",
 "Level": "",
+"Marker": "res://planning/marker/marker.png",
 "Slot": ""
 }
 
@@ -47,11 +53,16 @@ _global_script_class_icons={
 config/name="ld52"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
-config/icon="res://icon.svg"
 
 [audio]
 
 buses/default_bus_layout="res://settings/audio_bus_layout.tres"
+
+[autoload]
+
+AudioPlayer="*res://global/audio_player.gd"
+MusicPlayer="*res://global/music_player.gd"
+Events="*res://global/events.gd"
 
 [display]
 
@@ -70,4 +81,5 @@ click={
 
 [rendering]
 
+environment/defaults/default_clear_color=Color(0.227451, 0.372549, 0.231373, 1)
 textures/canvas_textures/default_texture_filter=0

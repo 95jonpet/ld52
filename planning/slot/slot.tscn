@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dbl6t"]
 size = Vector2(15, 15)
 
-[node name="Slot" instance=ExtResource("1_l63ah")]
+[node name="Slot" groups=["Slot"] instance=ExtResource("1_l63ah")]
 script = ExtResource("2_e2dqc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]

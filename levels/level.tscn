@@ -7,6 +7,7 @@
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8suof")
+plan = [0]
 
 [node name="Harvester" parent="." instance=ExtResource("1_2n8hu")]
 position = Vector2(-40, 0)
@@ -16,6 +17,9 @@ position = Vector2(-40, 0)
 [node name="Slot4" parent="Grid" instance=ExtResource("1_f3gjq")]
 position = Vector2(24, 0)
 
+[node name="Slot5" parent="Grid" instance=ExtResource("1_f3gjq")]
+position = Vector2(24, -61)
+
 [node name="PlanningSlots" type="Node2D" parent="."]
 
 [node name="Slot2" parent="PlanningSlots" instance=ExtResource("1_f3gjq")]
@@ -23,3 +27,9 @@ position = Vector2(24, 96)
 
 [node name="Marker2" parent="PlanningSlots" instance=ExtResource("2_3jysm")]
 position = Vector2(24, 96)
+
+[node name="Slot3" parent="PlanningSlots" instance=ExtResource("1_f3gjq")]
+position = Vector2(-38, 96)
+
+[node name="Marker3" parent="PlanningSlots" instance=ExtResource("2_3jysm")]
+position = Vector2(-38, 96)
