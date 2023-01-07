@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://48h3wxixra"]
+[gd_scene load_steps=7 format=3 uid="uid://48h3wxixra"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_8cthv"]
-[ext_resource type="PackedScene" uid="uid://pwx4kaeq5fg3" path="res://game/game.tscn" id="1_vqyok"]
+[ext_resource type="PackedScene" uid="uid://dnbt82s83lkeu" path="res://game/game.tscn" id="1_vqyok"]
+[ext_resource type="FontFile" uid="uid://dqmd0jf4gib4q" path="res://fonts/kenney_blocks.ttf" id="3_4ykrc"]
+[ext_resource type="FontFile" uid="uid://bq86wdql8mmiy" path="res://fonts/kenney_mini_square.ttf" id="4_s1b7n"]
 
 [sub_resource type="Shader" id="Shader_6shk1"]
 code = "shader_type canvas_item;
@@ -36,3 +38,28 @@ size = Vector2i(320, 180)
 render_target_update_mode = 4
 
 [node name="Game" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_vqyok")]
+
+[node name="LevelLabels" type="VBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -186.0
+offset_right = 186.0
+offset_bottom = 112.0
+grow_horizontal = 2
+
+[node name="LevelTitleLabel" type="Label" parent="LevelLabels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.619608, 0.686275, 0.6, 1)
+theme_override_fonts/font = ExtResource("3_4ykrc")
+theme_override_font_sizes/font_size = 48
+text = "Level Title"
+horizontal_alignment = 1
+
+[node name="LevelDescriptionLabel" type="Label" parent="LevelLabels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.619608, 0.686275, 0.6, 1)
+theme_override_fonts/font = ExtResource("4_s1b7n")
+theme_override_font_sizes/font_size = 28
+text = "Level Description"
+horizontal_alignment = 1

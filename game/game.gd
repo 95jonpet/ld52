@@ -12,6 +12,9 @@ var _level_completed: bool = false
 func _ready() -> void:
 	Events.level_completed.connect(_on_level_completed)
 	Events.drill_moved.connect(_on_drill_moved)
+
+
+func start() -> void:
 	_goto_next_level()
 
 
@@ -34,6 +37,8 @@ func _goto_next_level() -> void:
 	_level.queue_free()
 	_level = level_node
 	_level_completed = false
+
+	Events.level_started.emit(_level)
 
 
 func _on_drill_moved(drill: Drill, _old_pos: Vector2, _new_pos: Vector2) -> void:

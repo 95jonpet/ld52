@@ -8,5 +8,6 @@
 script = ExtResource("1_ymhb5")
 
 [node name="Camera" parent="." instance=ExtResource("1_seqrl")]
+speed = 5.0
 
 [node name="Level" parent="." instance=ExtResource("2_y1sil")]

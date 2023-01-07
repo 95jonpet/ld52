@@ -1,5 +1,6 @@
 extends Node
 
+signal level_started(level: Level)
 signal level_completed()
 
 signal planning_completed()

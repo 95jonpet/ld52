@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ch8xdny33hwts" path="res://common/noclip/noclip.tscn" id="2_t3g2u"]
 [ext_resource type="PackedScene" uid="uid://smhunqd5w84e" path="res://minerals/ore/ore.tscn" id="3_bykxe"]
 
-[node name="Level02" instance=ExtResource("1_jv587")]
+[node name="Level01" instance=ExtResource("1_jv587")]
 level_name = "Level 1"
 description = "Harvest everything underground to continue"
 
