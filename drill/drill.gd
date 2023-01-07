@@ -2,14 +2,30 @@ class_name Drill
 extends Node2D
 
 
+const RETRACT_STEP_TIME: float = 0.25
+
 @onready var _head: DrillHead = $Head
 @onready var _body: Node2D = $Body
+@onready var _original_head_rotation: float = _head.rotation
 var _body_nodes: Array[Node2D] = []
 
 @onready var body_scene: PackedScene = preload("res://drill/drill_body.tscn")
 
 @onready var drill_moved: AudioStream = preload("res://drill/drill_moved.wav")
 @onready var drill_blocked: AudioStream = preload("res://drill/drill_blocked.wav")
+
+
+func _ready() -> void:
+	Events.level_completed.connect(_on_level_completed)
+
+
+func retract() -> void:
+	_head.can_move = false
+	while not _body_nodes.is_empty():
+		var node: Node2D = _body_nodes.back()
+		_on_head_move_requested(_head.global_position, node.global_position)
+		await get_tree().create_timer(RETRACT_STEP_TIME).timeout
+	_head.can_move = true
 
 
 func _create_body(global_pos: Vector2) -> void:
@@ -36,8 +52,7 @@ func _on_head_move_requested(old_global_pos: Vector2, new_global_pos: Vector2) -
 
 		# Update rotation when retracting over a turn.
 		var next_last_node = _body_nodes.back() if not _body_nodes.is_empty() else null
-		if next_last_node:
-			_head.rotation = next_last_node.global_position.angle_to_point(new_global_pos)
+		_head.rotation = next_last_node.global_position.angle_to_point(new_global_pos) if next_last_node else _original_head_rotation
 
 		return
 
@@ -50,3 +65,9 @@ func _on_head_move_requested(old_global_pos: Vector2, new_global_pos: Vector2) -
 	_head.move_to_position(new_global_pos)
 	Events.drill_moved.emit(self, old_global_pos, new_global_pos)
 	AudioPlayer.play(drill_moved)
+
+
+func _on_level_completed() -> void:
+	_head.can_move = false
+	await get_tree().create_timer(RETRACT_STEP_TIME).timeout
+	retract()

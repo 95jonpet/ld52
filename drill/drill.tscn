@@ -9,6 +9,7 @@ visibility_layer = 2
 script = ExtResource("1_ikhwd")
 
 [node name="Head" parent="." instance=ExtResource("1_il7aq")]
+rotation = 1.5708
 
 [node name="Body" type="Node2D" parent="."]
 

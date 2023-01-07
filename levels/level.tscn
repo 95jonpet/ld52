@@ -1,29 +1,289 @@
 [gd_scene load_steps=6 format=3 uid="uid://rt8cb7dcdl6s"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_8suof"]
-[ext_resource type="Texture2D" uid="uid://crbbf4dsu64j" path="res://levels/sky.png" id="2_3ymk6"]
 [ext_resource type="PackedScene" uid="uid://pefwckejdvi0" path="res://drill/drill.tscn" id="2_h2f4y"]
-[ext_resource type="Texture2D" uid="uid://duav8u6nil817" path="res://levels/background.png" id="3_lm6pg"]
 [ext_resource type="PackedScene" uid="uid://smhunqd5w84e" path="res://minerals/ore/ore.tscn" id="5_bfiwk"]
+[ext_resource type="PackedScene" uid="uid://drp4h5u2oxuvk" path="res://minerals/border/border.tscn" id="5_gv5sw"]
+[ext_resource type="PackedScene" uid="uid://cqfvhtang8bcn" path="res://minerals/rock/rock.tscn" id="6_bx7pu"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8suof")
 
-[node name="Sky" type="Sprite2D" parent="."]
-texture = ExtResource("2_3ymk6")
-centered = false
+[node name="Sky" type="ColorRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -368.0
+offset_right = 320.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.0235294, 0.0313726, 0.0392157, 1)
 
-[node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("3_lm6pg")
-centered = false
+[node name="Ground" type="ColorRect" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = -8.0
+offset_right = 320.0
+offset_bottom = 352.0
+grow_horizontal = 2
+color = Color(0.0313726, 0.117647, 0.14902, 1)
 
 [node name="Drill" parent="." instance=ExtResource("2_h2f4y")]
 
 [node name="Borders" type="Node2D" parent="."]
 
+[node name="Border" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(-64, 0)
+
+[node name="Border2" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(64, 0)
+
+[node name="Border3" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(-64, 16)
+
+[node name="Border4" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(64, 16)
+
+[node name="Border5" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(-64, 32)
+
+[node name="Border6" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(64, 32)
+
+[node name="Border7" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(-64, 48)
+
+[node name="Border8" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(64, 48)
+
+[node name="Border9" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(-64, 64)
+
+[node name="Border10" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(64, 64)
+
+[node name="Border11" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(-64, 80)
+
+[node name="Border12" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(64, 80)
+
+[node name="Border13" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(-64, 80)
+
+[node name="Border14" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(64, 80)
+
+[node name="Border15" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(-64, 96)
+
+[node name="Border16" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(64, 96)
+
+[node name="Border17" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(-64, 112)
+
+[node name="Border18" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(64, 112)
+
+[node name="Border19" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(-64, 128)
+
+[node name="Border21" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(-48, 128)
+
+[node name="Border22" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(-32, 128)
+
+[node name="Border23" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(-16, 128)
+
+[node name="Border24" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(0, 128)
+
+[node name="Border25" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(16, 128)
+
+[node name="Border26" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(32, 128)
+
+[node name="Border27" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(48, 128)
+
+[node name="Border28" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(-48, 0)
+
+[node name="Border29" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(-32, 0)
+
+[node name="Border30" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(-16, 0)
+
+[node name="Border31" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(16, 0)
+
+[node name="Border32" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(32, 0)
+
+[node name="Border33" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(48, 0)
+
+[node name="Border34" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(16, 80)
+
+[node name="Border35" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(32, 80)
+
+[node name="Border36" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(48, 80)
+
+[node name="Border20" parent="Borders" instance=ExtResource("5_gv5sw")]
+position = Vector2(64, 128)
+
 [node name="Rocks" type="Node2D" parent="."]
+
+[node name="Rock" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(-48, 16)
+
+[node name="Rock2" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(-32, 16)
+
+[node name="Rock3" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(-16, 16)
+
+[node name="Rock4" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(0, 16)
+
+[node name="Rock5" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(16, 16)
+
+[node name="Rock6" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(32, 16)
+
+[node name="Rock7" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(48, 16)
+
+[node name="Rock8" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(-48, 32)
+
+[node name="Rock9" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(-32, 32)
+
+[node name="Rock10" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(-16, 32)
+
+[node name="Rock11" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(0, 32)
+
+[node name="Rock12" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(16, 32)
+
+[node name="Rock13" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(32, 32)
+
+[node name="Rock14" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(48, 32)
+
+[node name="Rock15" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(-48, 48)
+
+[node name="Rock16" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(-32, 48)
+
+[node name="Rock17" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(-16, 48)
+
+[node name="Rock18" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(0, 48)
+
+[node name="Rock19" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(16, 48)
+
+[node name="Rock20" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(32, 48)
+
+[node name="Rock21" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(48, 48)
+
+[node name="Rock22" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(-48, 64)
+
+[node name="Rock36" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(-48, 80)
+
+[node name="Rock37" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(-16, 80)
+
+[node name="Rock38" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(0, 80)
+
+[node name="Rock39" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(-48, 96)
+
+[node name="Rock40" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(-32, 96)
+
+[node name="Rock41" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(-16, 96)
+
+[node name="Rock42" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(0, 96)
+
+[node name="Rock43" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(16, 96)
+
+[node name="Rock44" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(48, 96)
+
+[node name="Rock23" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(-32, 64)
+
+[node name="Rock24" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(-16, 64)
+
+[node name="Rock25" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(0, 64)
+
+[node name="Rock26" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(16, 64)
+
+[node name="Rock27" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(32, 64)
+
+[node name="Rock28" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(48, 64)
+
+[node name="Rock29" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(-48, 112)
+
+[node name="Rock30" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(-32, 112)
+
+[node name="Rock31" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(-16, 112)
+
+[node name="Rock32" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(0, 112)
+
+[node name="Rock33" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(16, 112)
+
+[node name="Rock34" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(32, 112)
+
+[node name="Rock35" parent="Rocks" instance=ExtResource("6_bx7pu")]
+position = Vector2(48, 112)
 
 [node name="Ore" type="Node2D" parent="."]
 
 [node name="Ore" parent="Ore" instance=ExtResource("5_bfiwk")]
-position = Vector2(32, 64)
+position = Vector2(32, 96)
+
+[node name="Ore2" parent="Ore" instance=ExtResource("5_bfiwk")]
+position = Vector2(-32, 80)

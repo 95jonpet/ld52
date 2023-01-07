@@ -4,10 +4,15 @@ extends CharacterBody2D
 
 signal move_requested(old_global_pos: Vector2, new_global_pos: Vector2)
 
+var can_move: bool = true
+
 @onready var _ray: RayCast2D = $RayCast2D
 
 
 func _input(event: InputEvent) -> void:
+	if not can_move:
+		return
+
 	var move_direction := Vector2.ZERO
 
 	if event.is_action_pressed("move_left"):
