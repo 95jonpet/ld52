@@ -6,4 +6,6 @@ signal camera_moved(camera: Camera, old_global_pos: Vector2, new_global_pos: Vec
 
 signal drill_moved(drill: Drill, old_global_pos: Vector2, new_global_pos: Vector2)
 
+signal ore_collected(ore: Ore)
+
 signal mineral_drilled(mineral: Node2D)

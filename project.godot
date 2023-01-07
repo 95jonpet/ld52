@@ -55,6 +55,16 @@ _global_script_classes=[{
 "path": "res://planning/marker/marker.gd"
 }, {
 "base": "StaticBody2D",
+"class": &"NoClip",
+"language": &"GDScript",
+"path": "res://levels/noclip.gd"
+}, {
+"base": "StaticBody2D",
+"class": &"Ore",
+"language": &"GDScript",
+"path": "res://minerals/ore/ore.gd"
+}, {
+"base": "StaticBody2D",
 "class": &"Rock",
 "language": &"GDScript",
 "path": "res://minerals/rock/rock.gd"
@@ -74,6 +84,8 @@ _global_script_class_icons={
 "Level": "",
 "Main": "",
 "Marker": "res://planning/marker/marker.png",
+"NoClip": "",
+"Ore": "",
 "Rock": "",
 "Slot": ""
 }
@@ -90,6 +102,7 @@ buses/default_bus_layout="res://settings/audio_bus_layout.tres"
 
 [autoload]
 
+Constants="*res://global/constants.gd"
 AudioPlayer="*res://global/audio_player.gd"
 MusicPlayer="*res://global/music_player.gd"
 Events="*res://global/events.gd"
@@ -135,11 +148,13 @@ move_down={
 
 [layer_names]
 
+2d_render/layer_1="World"
+2d_render/layer_2="Player"
 2d_physics/layer_1="World"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Obstruction"
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.0235294, 0.0313726, 0.0392157, 1)
+environment/defaults/default_clear_color=Color(0.0352941, 0.0823529, 0.105882, 1)
 textures/canvas_textures/default_texture_filter=0

@@ -20,6 +20,11 @@ func _create_body(global_pos: Vector2) -> void:
 
 
 func _on_head_move_requested(old_global_pos: Vector2, new_global_pos: Vector2) -> void:
+	# Don't move out of the ground.
+	if new_global_pos.y < 0:
+		AudioPlayer.play(drill_blocked)
+		return
+
 	# Allow the drill to be retracted.
 	var last_node: Node2D = _body_nodes.back() if not _body_nodes.is_empty() else null
 	if last_node and last_node.global_position == new_global_pos:

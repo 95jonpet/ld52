@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://rl7g1xoavt84" path="res://drill/drill_body.png" id="1_ivax3"]
 
 [node name="DrillBbody" type="Node2D"]
+light_mask = 2
+visibility_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ivax3")

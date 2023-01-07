@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://smhunqd5w84e"]
+
+[ext_resource type="Texture2D" uid="uid://b6o7bb0v1cv0f" path="res://minerals/ore/ore.png" id="1_8cwxe"]
+[ext_resource type="Script" path="res://minerals/ore/ore.gd" id="1_uaa2q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aykx0"]
+size = Vector2(15, 15)
+
+[node name="Ore" type="StaticBody2D"]
+script = ExtResource("1_uaa2q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8cwxe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_aykx0")

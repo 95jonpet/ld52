@@ -5,7 +5,6 @@ extends CharacterBody2D
 signal move_requested(old_global_pos: Vector2, new_global_pos: Vector2)
 
 @onready var _ray: RayCast2D = $RayCast2D
-@onready var _sprite: Sprite2D = $Sprite2D
 
 
 func _input(event: InputEvent) -> void:
@@ -24,8 +23,7 @@ func _input(event: InputEvent) -> void:
 	if move_direction.length() != 1:
 		return
 
-	var move_distance := _sprite.texture.get_size() * _sprite.scale
-	var new_global_pos := global_position + move_direction * move_distance
+	var new_global_pos := global_position + move_direction * Constants.GRID_SIZE
 
 	# Ensure that there is no collision.
 	_ray.target_position = to_local(new_global_pos)
