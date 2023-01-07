@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://d52uca70xopq"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://common/draggable.gd" id="1_vme8o"]
+[ext_resource type="Script" path="res://common/draggable/draggable.gd" id="1_vme8o"]
 
 [node name="Draggable" type="Area2D"]
 script = ExtResource("1_vme8o")

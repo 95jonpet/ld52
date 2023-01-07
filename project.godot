@@ -17,7 +17,7 @@ _global_script_classes=[{
 "base": "Area2D",
 "class": &"Draggable",
 "language": &"GDScript",
-"path": "res://common/draggable.gd"
+"path": "res://common/draggable/draggable.gd"
 }, {
 "base": "Node2D",
 "class": &"Drill",
@@ -32,7 +32,12 @@ _global_script_classes=[{
 "base": "Area2D",
 "class": &"DropArea",
 "language": &"GDScript",
-"path": "res://common/drop_area.gd"
+"path": "res://common/drop_area/drop_area.gd"
+}, {
+"base": "Node2D",
+"class": &"Game",
+"language": &"GDScript",
+"path": "res://game/game.gd"
 }, {
 "base": "CharacterBody2D",
 "class": &"Harvester",
@@ -42,7 +47,7 @@ _global_script_classes=[{
 "base": "Node2D",
 "class": &"Level",
 "language": &"GDScript",
-"path": "res://levels/level.gd"
+"path": "res://levels/level/level.gd"
 }, {
 "base": "Node",
 "class": &"Main",
@@ -57,7 +62,7 @@ _global_script_classes=[{
 "base": "StaticBody2D",
 "class": &"NoClip",
 "language": &"GDScript",
-"path": "res://levels/noclip.gd"
+"path": "res://common/noclip/noclip.gd"
 }, {
 "base": "StaticBody2D",
 "class": &"Ore",
@@ -80,6 +85,7 @@ _global_script_class_icons={
 "Drill": "",
 "DrillHead": "",
 "DropArea": "",
+"Game": "",
 "Harvester": "",
 "Level": "",
 "Main": "",

@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cr7crsrmpjsxh"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="PackedScene" uid="uid://ba487og8056iw" path="res://common/drop_area.tscn" id="1_l63ah"]
+[ext_resource type="PackedScene" path="res://common/drop_area/drop_area.tscn" id="1_l63ah"]
 [ext_resource type="Script" path="res://planning/slot/slot.gd" id="2_e2dqc"]
 [ext_resource type="Texture2D" uid="uid://dg0j8g5i7foe5" path="res://planning/slot/slot.png" id="2_p5wjr"]
 

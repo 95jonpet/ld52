@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8l8d0pfs1tmr"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="PackedScene" uid="uid://d52uca70xopq" path="res://common/draggable.tscn" id="1_texo2"]
+[ext_resource type="PackedScene" path="res://common/draggable/draggable.tscn" id="1_texo2"]
 [ext_resource type="Texture2D" uid="uid://cwua8f1nkek2y" path="res://planning/marker/marker.png" id="2_k2etj"]
 [ext_resource type="Script" path="res://planning/marker/marker.gd" id="2_og02x"]
 

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq3ah2woakeui"]
+
+[ext_resource type="PackedScene" uid="uid://dx6kbrsu1bjvm" path="res://levels/level/level.tscn" id="1_msyb1"]
+[ext_resource type="PackedScene" uid="uid://smhunqd5w84e" path="res://minerals/ore/ore.tscn" id="3_l15wy"]
+
+[node name="Level02" instance=ExtResource("1_msyb1")]
+level_name = "Level 1"
+description = "Harvest everything underground to continue"
+
+[node name="TileMap" parent="." index="2"]
+position = Vector2(-8, -8)
+layer_0/tile_data = PackedInt32Array(65533, 0, 0, 131069, 0, 0, 196605, 0, 0, 262141, 0, 0, 327677, 0, 0, 393213, 0, 0, 458749, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 327683, 0, 0, 262147, 0, 0, 196611, 0, 0, 131075, 0, 0, 65539, 0, 0, 3, 0, 0, 262143, 0, 0, 262142, 0, 0, 196609, 0, 0, 196610, 0, 0, 131074, 0, 0, 262146, 0, 0, 196606, 0, 0, 327678, 0, 0, 393214, 0, 0, 327682, 0, 0)
+
+[node name="Ore" parent="Ore" index="0" instance=ExtResource("3_l15wy")]
+position = Vector2(16, 64)
+
+[node name="Ore3" parent="Ore" index="1" instance=ExtResource("3_l15wy")]
+position = Vector2(-16, 32)
+
+[node name="Ore4" parent="Ore" index="2" instance=ExtResource("3_l15wy")]
+position = Vector2(16, 32)
+
+[node name="Ore2" parent="Ore" index="3" instance=ExtResource("3_l15wy")]
+position = Vector2(-16, 64)

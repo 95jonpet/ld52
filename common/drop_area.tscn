@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ba487og8056iw"]
-
-[ext_resource type="Script" path="res://common/drop_area.gd" id="1_5nunt"]
-
-[node name="DropArea" type="Area2D" groups=["Drop Area"]]
-input_pickable = false
-script = ExtResource("1_5nunt")

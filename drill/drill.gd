@@ -19,12 +19,16 @@ func _ready() -> void:
 	Events.level_completed.connect(_on_level_completed)
 
 
+func has_body() -> bool:
+	return !_body_nodes.is_empty()
+
+
 func retract() -> void:
 	_head.can_move = false
 	while not _body_nodes.is_empty():
 		var node: Node2D = _body_nodes.back()
-		_on_head_move_requested(_head.global_position, node.global_position)
 		await get_tree().create_timer(RETRACT_STEP_TIME).timeout
+		_on_head_move_requested(_head.global_position, node.global_position)
 	_head.can_move = true
 
 
@@ -69,5 +73,4 @@ func _on_head_move_requested(old_global_pos: Vector2, new_global_pos: Vector2) -
 
 func _on_level_completed() -> void:
 	_head.can_move = false
-	await get_tree().create_timer(RETRACT_STEP_TIME).timeout
 	retract()
