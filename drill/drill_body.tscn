@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://btmq56x60mtd2"]
+
+[ext_resource type="Texture2D" uid="uid://rl7g1xoavt84" path="res://drill/drill_body.png" id="1_ivax3"]
+
+[node name="DrillBbody" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ivax3")

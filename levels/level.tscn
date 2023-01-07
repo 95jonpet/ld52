@@ -1,35 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://rt8cb7dcdl6s"]
+[gd_scene load_steps=3 format=3 uid="uid://rt8cb7dcdl6s"]
 
-[ext_resource type="PackedScene" uid="uid://bpc6lp6yfyspt" path="res://robots/harvester/harvester.tscn" id="1_2n8hu"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_8suof"]
-[ext_resource type="PackedScene" uid="uid://cr7crsrmpjsxh" path="res://planning/slot/slot.tscn" id="1_f3gjq"]
-[ext_resource type="PackedScene" uid="uid://c8l8d0pfs1tmr" path="res://planning/marker/marker.tscn" id="2_3jysm"]
+[ext_resource type="PackedScene" uid="uid://pefwckejdvi0" path="res://drill/drill.tscn" id="2_h2f4y"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8suof")
-plan = [0]
 
-[node name="Harvester" parent="." instance=ExtResource("1_2n8hu")]
-position = Vector2(-40, 0)
+[node name="Drill" parent="." instance=ExtResource("2_h2f4y")]
 
-[node name="Grid" type="Node2D" parent="."]
+[node name="Borders" type="Node2D" parent="."]
 
-[node name="Slot4" parent="Grid" instance=ExtResource("1_f3gjq")]
-position = Vector2(24, 0)
-
-[node name="Slot5" parent="Grid" instance=ExtResource("1_f3gjq")]
-position = Vector2(24, -61)
-
-[node name="PlanningSlots" type="Node2D" parent="."]
-
-[node name="Slot2" parent="PlanningSlots" instance=ExtResource("1_f3gjq")]
-position = Vector2(24, 96)
-
-[node name="Marker2" parent="PlanningSlots" instance=ExtResource("2_3jysm")]
-position = Vector2(24, 96)
-
-[node name="Slot3" parent="PlanningSlots" instance=ExtResource("1_f3gjq")]
-position = Vector2(-38, 96)
-
-[node name="Marker3" parent="PlanningSlots" instance=ExtResource("2_3jysm")]
-position = Vector2(-38, 96)
+[node name="Rocks" type="Node2D" parent="."]

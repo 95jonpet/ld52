@@ -5,7 +5,7 @@ extends Node
 ## This node is typically global and autoloaded.
 
 
-const STREAM_COUNT: int = 8
+const STREAM_COUNT: int = 7  # One less than total streams.
 const AUDIO_BUS: String = "Sound"
 
 var _available: Array[AudioStreamPlayer] = []
@@ -15,7 +15,7 @@ var _queue: Array[AudioStream] = []
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS  # Play audio even when paused.
 
-	for i in range(0, STREAM_COUNT - 1):
+	for i in range(0, STREAM_COUNT):
 		var player := AudioStreamPlayer.new()
 		add_child(player)
 		_available.append(player)

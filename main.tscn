@@ -1,11 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://48h3wxixra"]
+[gd_scene load_steps=5 format=3 uid="uid://48h3wxixra"]
 
-[ext_resource type="PackedScene" uid="uid://rt8cb7dcdl6s" path="res://levels/level.tscn" id="1_voirp"]
+[ext_resource type="Script" path="res://main.gd" id="1_8cthv"]
+[ext_resource type="PackedScene" uid="uid://pwx4kaeq5fg3" path="res://game/game.tscn" id="1_vqyok"]
 
-[node name="Main" type="Node2D"]
+[sub_resource type="Shader" id="Shader_6shk1"]
+code = "shader_type canvas_item;
 
-[node name="Camera" type="Camera2D" parent="."]
-current = true
-zoom = Vector2(4, 4)
+uniform vec2 camera_offset = vec2(0.0, 0.0);
 
-[node name="Level" parent="." instance=ExtResource("1_voirp")]
+void vertex() {
+	VERTEX += camera_offset;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t8tpl"]
+shader = SubResource("Shader_6shk1")
+shader_parameter/camera_offset = Vector2(0, 0)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_8cthv")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_t8tpl")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 4
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(320, 180)
+render_target_update_mode = 4
+
+[node name="Game" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_vqyok")]

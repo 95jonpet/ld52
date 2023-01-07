@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://drp4h5u2oxuvk"]
+
+[ext_resource type="Texture2D" uid="uid://23xl80ml4jxw" path="res://minerals/border/border.png" id="1_jc3fr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4watk"]
+size = Vector2(15, 15)
+
+[node name="Border" type="StaticBody2D"]
+collision_layer = 5
+collision_mask = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jc3fr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4watk")

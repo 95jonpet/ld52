@@ -9,10 +9,25 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Camera2D",
+"class": &"Camera",
+"language": &"GDScript",
+"path": "res://camera/camera.gd"
+}, {
 "base": "Area2D",
 "class": &"Draggable",
 "language": &"GDScript",
 "path": "res://common/draggable.gd"
+}, {
+"base": "Node2D",
+"class": &"Drill",
+"language": &"GDScript",
+"path": "res://drill/drill.gd"
+}, {
+"base": "CharacterBody2D",
+"class": &"DrillHead",
+"language": &"GDScript",
+"path": "res://drill/drill_head.gd"
 }, {
 "base": "Area2D",
 "class": &"DropArea",
@@ -29,10 +44,20 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://levels/level.gd"
 }, {
+"base": "Node",
+"class": &"Main",
+"language": &"GDScript",
+"path": "res://main.gd"
+}, {
 "base": "Draggable",
 "class": &"Marker",
 "language": &"GDScript",
 "path": "res://planning/marker/marker.gd"
+}, {
+"base": "StaticBody2D",
+"class": &"Rock",
+"language": &"GDScript",
+"path": "res://minerals/rock/rock.gd"
 }, {
 "base": "DropArea",
 "class": &"Slot",
@@ -40,11 +65,16 @@ _global_script_classes=[{
 "path": "res://planning/slot/slot.gd"
 }]
 _global_script_class_icons={
+"Camera": "",
 "Draggable": "",
+"Drill": "",
+"DrillHead": "",
 "DropArea": "",
 "Harvester": "",
 "Level": "",
+"Main": "",
 "Marker": "res://planning/marker/marker.png",
+"Rock": "",
 "Slot": ""
 }
 
@@ -66,10 +96,10 @@ Events="*res://global/events.gd"
 
 [display]
 
-window/size/viewport_width=1536
-window/size/viewport_height=864
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/size/resizable=false
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [input]
 
@@ -78,8 +108,38 @@ click={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"pressed":false,"double_click":false,"script":null)
 ]
 }
+move_left={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"unicode":0,"echo":false,"script":null)
+]
+}
+move_right={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"unicode":0,"echo":false,"script":null)
+]
+}
+move_up={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194320,"unicode":0,"echo":false,"script":null)
+]
+}
+move_down={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194322,"unicode":0,"echo":false,"script":null)
+]
+}
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Obstruction"
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.227451, 0.372549, 0.231373, 1)
+environment/defaults/default_clear_color=Color(0.0235294, 0.0313726, 0.0392157, 1)
 textures/canvas_textures/default_texture_filter=0

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://pefwckejdvi0"]
+
+[ext_resource type="Script" path="res://drill/drill.gd" id="1_ikhwd"]
+[ext_resource type="PackedScene" uid="uid://bb5hph1aixo7e" path="res://drill/drill_head.tscn" id="1_il7aq"]
+
+[node name="Drill" type="Node2D"]
+script = ExtResource("1_ikhwd")
+
+[node name="Head" parent="." instance=ExtResource("1_il7aq")]
+
+[node name="Body" type="Node2D" parent="."]
+
+[connection signal="move_requested" from="Head" to="." method="_on_head_move_requested"]

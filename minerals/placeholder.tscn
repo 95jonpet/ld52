@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://br0hefqpa4lsr"]
+
+[ext_resource type="Script" path="res://minerals/placeholder.gd" id="1_b52ju"]
+[ext_resource type="Texture2D" uid="uid://d64tx5xt2581" path="res://minerals/placeholder.png" id="1_hwras"]
+
+[node name="Placeholder" type="Node2D"]
+script = ExtResource("1_b52ju")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hwras")
