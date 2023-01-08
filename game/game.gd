@@ -7,6 +7,7 @@ var _level_index: int = 0
 var _level_completed: bool = false
 
 @onready var level_completed_sound: AudioStream = preload("res://game/level_completed.wav")
+@onready var level_failed_sound: AudioStream = preload("res://game/level_failed.wav")
 
 
 func _ready() -> void:
@@ -65,5 +66,6 @@ func _on_level_completed() -> void:
 
 
 func _on_level_failed(_lvl: Level, _reason: String) -> void:
+	AudioPlayer.play(level_failed_sound)
 	await get_tree().create_timer(1.0).timeout
 	_restart_level()
