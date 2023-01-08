@@ -20,6 +20,18 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("restart"):
 		_restart_level()
 
+	if event.is_action("ui_end") and OS.is_debug_build():
+		var index := 0
+		while true:
+			var level_path := "res://levels/level_%02d.tscn" % (index + 1)
+			if not ResourceLoader.exists(level_path):
+				break
+			index += 1
+
+		_level_index = index - 1
+		_goto_next_level()
+
+
 
 func start() -> void:
 	_goto_next_level()
