@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d64tx5xt2581"
-path="res://.godot/imported/placeholder.png-f2bce6bd5d8fcf1eaafaa3b41779fd37.ctex"
+uid="uid://do3tkxos0rvos"
+path="res://.godot/imported/toggle.png-59f89e72eee4537613dc8288b07e1066.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minerals/placeholder.png"
-dest_files=["res://.godot/imported/placeholder.png-f2bce6bd5d8fcf1eaafaa3b41779fd37.ctex"]
+source_file="res://entities/toggle/toggle.png"
+dest_files=["res://.godot/imported/toggle.png-59f89e72eee4537613dc8288b07e1066.ctex"]
 
 [params]
 

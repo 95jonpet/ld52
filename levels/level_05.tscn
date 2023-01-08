@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="PackedScene" uid="uid://dx6kbrsu1bjvm" path="res://levels/level/level.tscn" id="1_bg7tt"]
+[ext_resource type="PackedScene" uid="uid://smhunqd5w84e" path="res://minerals/ore/ore.tscn" id="2_lfu2q"]
+[ext_resource type="PackedScene" uid="uid://16hjbh7pbyi0" path="res://entities/lock/lock.tscn" id="3_8m126"]
+[ext_resource type="PackedScene" uid="uid://cy8qxoykfc6bi" path="res://entities/toggle/toggle.tscn" id="3_vxkjp"]
+
+[node name="Level05" instance=ExtResource("1_bg7tt")]
+level_name = "Level 5"
+
+[node name="TileMap" parent="." index="2"]
+position = Vector2(-8, -8)
+layer_0/tile_data = PackedInt32Array(65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, 327679, 0, 0, 393215, 0, 0, 458751, 0, 0, 524287, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65543, 0, 0, 262148, 0, 0, 196612, 0, 0, 327684, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 196610, 0, 0, 262146, 0, 0, 327683, 0, 0, 262147, 0, 0, 196611, 0, 0, 327682, 0, 0, 131079, 0, 0, 196615, 0, 0, 262151, 0, 0, 327687, 0, 0, 393223, 0, 0, 7, 0, 0)
+
+[node name="Toggles" type="Node2D" parent="." index="3"]
+position = Vector2(0, 64)
+
+[node name="Toggle" parent="Toggles" index="0" instance=ExtResource("3_vxkjp")]
+
+[node name="Toggle2" parent="Toggles" index="1" instance=ExtResource("3_vxkjp")]
+position = Vector2(16, 0)
+
+[node name="Toggle3" parent="Toggles" index="2" instance=ExtResource("3_vxkjp")]
+position = Vector2(80, 0)
+
+[node name="Toggle4" parent="Toggles" index="3" instance=ExtResource("3_vxkjp")]
+position = Vector2(96, 0)
+
+[node name="Ore" parent="Ore" index="0" instance=ExtResource("2_lfu2q")]
+position = Vector2(96, 16)
+
+[node name="Ore2" parent="Ore" index="1" instance=ExtResource("2_lfu2q")]
+position = Vector2(0, 96)
+
+[node name="Ore3" parent="Ore" index="2" instance=ExtResource("2_lfu2q")]
+position = Vector2(32, 32)
+
+[node name="Ore4" parent="Ore" index="3" instance=ExtResource("2_lfu2q")]
+position = Vector2(96, 96)
+
+[node name="Lock" parent="." index="7" instance=ExtResource("3_8m126")]
+position = Vector2(48, 32)
+
+[node name="Lock2" parent="." index="8" instance=ExtResource("3_8m126")]
+position = Vector2(48, 96)

@@ -47,7 +47,7 @@ _global_script_classes=[{
 "base": "StaticBody2D",
 "class": &"Lock",
 "language": &"GDScript",
-"path": "res://modifiers/lock/lock.gd"
+"path": "res://entities/lock/lock.gd"
 }, {
 "base": "Node",
 "class": &"Main",
@@ -72,7 +72,7 @@ _global_script_classes=[{
 "base": "StaticBody2D",
 "class": &"Toggle",
 "language": &"GDScript",
-"path": "res://modifiers/toggle/toggle.gd"
+"path": "res://entities/toggle/toggle.gd"
 }]
 _global_script_class_icons={
 "Camera": "",

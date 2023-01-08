@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cy8qxoykfc6bi"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://modifiers/toggle/toggle.gd" id="1_dv0wm"]
-[ext_resource type="Texture2D" uid="uid://do3tkxos0rvos" path="res://modifiers/toggle/toggle.png" id="2_aaqow"]
+[ext_resource type="Script" path="res://entities/toggle/toggle.gd" id="1_dv0wm"]
+[ext_resource type="Texture2D" uid="uid://do3tkxos0rvos" path="res://entities/toggle/toggle.png" id="2_aaqow"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cq7xp"]
 size = Vector2(15, 15)

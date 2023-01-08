@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://jdvshqarubcu"
-path.s3tc="res://.godot/imported/lock.png-cbbe503c17ee04bff92c67bcd05db9c1.s3tc.ctex"
-path.etc2="res://.godot/imported/lock.png-cbbe503c17ee04bff92c67bcd05db9c1.etc2.ctex"
+path.s3tc="res://.godot/imported/lock.png-e0a129648e0510e8d91da82b0bcca600.s3tc.ctex"
+path.etc2="res://.godot/imported/lock.png-e0a129648e0510e8d91da82b0bcca600.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://modifiers/lock/lock.png"
-dest_files=["res://.godot/imported/lock.png-cbbe503c17ee04bff92c67bcd05db9c1.s3tc.ctex", "res://.godot/imported/lock.png-cbbe503c17ee04bff92c67bcd05db9c1.etc2.ctex"]
+source_file="res://entities/lock/lock.png"
+dest_files=["res://.godot/imported/lock.png-e0a129648e0510e8d91da82b0bcca600.s3tc.ctex", "res://.godot/imported/lock.png-e0a129648e0510e8d91da82b0bcca600.etc2.ctex"]
 
 [params]
 

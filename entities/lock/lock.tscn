@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://16hjbh7pbyi0"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://modifiers/lock/lock.gd" id="1_3sfe1"]
-[ext_resource type="Texture2D" uid="uid://jdvshqarubcu" path="res://modifiers/lock/lock.png" id="1_dqwav"]
+[ext_resource type="Script" path="res://entities/lock/lock.gd" id="1_3sfe1"]
+[ext_resource type="Texture2D" uid="uid://jdvshqarubcu" path="res://entities/lock/lock.png" id="1_dqwav"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8c38"]
 size = Vector2(15, 15)

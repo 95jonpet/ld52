@@ -23,11 +23,12 @@ func _ready() -> void:
 
 	MusicPlayer.play(_songs)
 
-	await get_tree().create_timer(2.0).timeout
+	if not OS.is_debug_build():
+		await get_tree().create_timer(2.0).timeout
 	var tween := get_tree().create_tween()
 	_game.start()
 
-	tween.tween_property(_game_title, "modulate", Color.TRANSPARENT, 0.5)
+	tween.tween_property(_game_title, "modulate", Color.TRANSPARENT, 0.5 if not OS.is_debug_build() else 0.0)
 	await tween.finished
 
 
