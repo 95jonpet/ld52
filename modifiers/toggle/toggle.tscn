@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy8qxoykfc6bi"]
+
+[ext_resource type="Script" path="res://modifiers/toggle/toggle.gd" id="1_dv0wm"]
+[ext_resource type="Texture2D" uid="uid://do3tkxos0rvos" path="res://modifiers/toggle/toggle.png" id="2_aaqow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cq7xp"]
+size = Vector2(15, 15)
+
+[node name="Toggle" type="StaticBody2D"]
+collision_layer = 4
+script = ExtResource("1_dv0wm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_aaqow")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cq7xp")

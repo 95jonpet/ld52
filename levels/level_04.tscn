@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://16hjbh7pbyi0" path="res://modifiers/lock/lock.tscn" id="3_j55ox"]
 
 [node name="Level04" instance=ExtResource("1_tobtb")]
-level_name = "Level 3"
+level_name = "Level 4"
 description = "Don't get stuck"
 
 [node name="TileMap" parent="." index="2"]

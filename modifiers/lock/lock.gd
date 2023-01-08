@@ -6,6 +6,7 @@ const NO_COLLISIONS: int = 0
 
 var locked: bool = false: set = _set_locked
 
+@onready var lock_locked: AudioStream = preload("res://modifiers/lock/lock_locked.wav")
 @onready var _detector: Area2D = $Detector
 @onready var _original_collision_layer: int = collision_layer
 
@@ -15,6 +16,9 @@ func _ready() -> void:
 
 
 func _set_locked(value: bool) -> void:
+	if locked != value:
+		AudioPlayer.play(lock_locked)
+
 	locked = value
 
 	collision_layer = _original_collision_layer if locked else NO_COLLISIONS

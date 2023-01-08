@@ -83,6 +83,11 @@ _global_script_classes=[{
 "class": &"Slot",
 "language": &"GDScript",
 "path": "res://planning/slot/slot.gd"
+}, {
+"base": "StaticBody2D",
+"class": &"Toggle",
+"language": &"GDScript",
+"path": "res://modifiers/toggle/toggle.gd"
 }]
 _global_script_class_icons={
 "Camera": "",
@@ -99,7 +104,8 @@ _global_script_class_icons={
 "NoClip": "",
 "Ore": "",
 "Rock": "",
-"Slot": ""
+"Slot": "",
+"Toggle": ""
 }
 
 [application]

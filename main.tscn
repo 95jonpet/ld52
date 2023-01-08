@@ -49,8 +49,7 @@ offset_bottom = 112.0
 grow_horizontal = 2
 
 [node name="LevelTitleLabel" type="Label" parent="LevelLabels"]
-offset_right = 372.0
-offset_bottom = 75.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0.686275, 0.6, 1)
 theme_override_fonts/font = ExtResource("3_4ykrc")
 theme_override_font_sizes/font_size = 48
@@ -58,9 +57,7 @@ text = "Level Title"
 horizontal_alignment = 1
 
 [node name="LevelDescriptionLabel" type="Label" parent="LevelLabels"]
-offset_top = 79.0
-offset_right = 372.0
-offset_bottom = 117.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0.619608, 0.686275, 0.6, 1)
 theme_override_fonts/font = ExtResource("4_s1b7n")
 theme_override_font_sizes/font_size = 28

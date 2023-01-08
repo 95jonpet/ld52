@@ -9,10 +9,17 @@ extends Node
 @onready var _level_title_label: Label = $LevelLabels/LevelTitleLabel
 @onready var _level_description_label: Label = $LevelLabels/LevelDescriptionLabel
 
+@onready var _songs: Array[AudioStream] = [
+	preload("res://music/main_title.ogg") as AudioStream,
+	preload("res://music/song1.ogg") as AudioStream,
+]
+
 
 func _ready() -> void:
 	Events.camera_moved.connect(_on_camera_moved)
 	Events.level_started.connect(_on_level_started)
+
+	MusicPlayer.play(_songs)
 
 	_game.start()
 
