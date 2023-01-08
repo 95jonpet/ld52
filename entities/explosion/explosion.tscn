@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://vmgs6d5w10fo" path="res://entities/explosion/explosion.png" id="1_m782k"]
 [ext_resource type="Script" path="res://entities/explosion/explosion.gd" id="1_vnq4n"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_aid4w"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_5aquc"]
 radius = 8.0
 
 [node name="Explosion" type="CharacterBody2D"]
@@ -15,7 +15,7 @@ script = ExtResource("1_vnq4n")
 texture = ExtResource("1_m782k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_aid4w")
+shape = SubResource("CircleShape2D_5aquc")
 
 [node name="LifeTimer" type="Timer" parent="."]
 wait_time = 0.25

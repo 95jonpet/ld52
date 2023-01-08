@@ -18,6 +18,7 @@ var _retracting: bool = false
 
 func _ready() -> void:
 	Events.level_completed.connect(_on_level_completed)
+	Events.level_failed.connect(_on_level_failed)
 
 
 func has_body() -> bool:
@@ -84,3 +85,7 @@ func _on_head_move_requested(old_global_pos: Vector2, new_global_pos: Vector2) -
 func _on_level_completed() -> void:
 	_head.can_move = false
 	retract()
+
+
+func _on_level_failed(_level: Level, _reason: String) -> void:
+	_head.can_move = false

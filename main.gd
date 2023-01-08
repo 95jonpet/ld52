@@ -89,6 +89,7 @@ func _on_level_completed() -> void:
 func _on_level_failed(_level: Level, reason: String) -> void:
 	_level_failed_reason.text = reason
 
+	await get_tree().create_timer(0.1).timeout
 	await get_tree().create_tween().tween_property(_level_failed, "modulate", Color.WHITE, 0.25).finished
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1.0).timeout
 	await get_tree().create_tween().tween_property(_level_failed, "modulate", Color.TRANSPARENT, 0.25).finished

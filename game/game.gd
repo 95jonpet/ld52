@@ -64,6 +64,6 @@ func _on_level_completed() -> void:
 	AudioPlayer.play(level_completed_sound)
 
 
-func _on_level_failed(level: Level, reason: String) -> void:
-	print_debug("Failed '%s': %s" % [level.level_name, reason])
+func _on_level_failed(_lvl: Level, _reason: String) -> void:
+	await get_tree().create_timer(1.0).timeout
 	_restart_level()

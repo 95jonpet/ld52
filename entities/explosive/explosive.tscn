@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc41vmxedbxyk"]
+[gd_scene load_steps=6 format=3 uid="uid://bc41vmxedbxyk"]
 
 [ext_resource type="Texture2D" uid="uid://cokw8cirb32d8" path="res://entities/explosive/explosive.png" id="1_n7183"]
 [ext_resource type="Script" path="res://entities/explosive/explosive.gd" id="1_oqgs4"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dtg2u"]
 size = Vector2(15, 15)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5gn2n"]
+polygon = PackedVector2Array(-6, 4, 3, -5, 6, -2, -3, 7)
 
 [node name="Explosive" type="Area2D"]
 collision_mask = 2
@@ -21,6 +24,9 @@ shape = SubResource("RectangleShape2D_dtg2u")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_dtg2u")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_5gn2n")
 
 [node name="TriggerTimer" type="Timer" parent="."]
 wait_time = 0.1
