@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bc41vmxedbxyk"]
+[gd_scene load_steps=5 format=3 uid="uid://bc41vmxedbxyk"]
 
 [ext_resource type="Texture2D" uid="uid://cokw8cirb32d8" path="res://entities/explosive/explosive.png" id="1_n7183"]
 [ext_resource type="Script" path="res://entities/explosive/explosive.gd" id="1_oqgs4"]
+[ext_resource type="PackedScene" uid="uid://biabuw3jhd423" path="res://common/hurtbox/hurtbox.tscn" id="3_r40wm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4h6f"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dtg2u"]
 size = Vector2(15, 15)
 
 [node name="Explosive" type="Area2D"]
@@ -14,6 +15,16 @@ script = ExtResource("1_oqgs4")
 texture = ExtResource("1_n7183")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_c4h6f")
+shape = SubResource("RectangleShape2D_dtg2u")
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_r40wm")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_dtg2u")
+
+[node name="TriggerTimer" type="Timer" parent="."]
+wait_time = 0.1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
+[connection signal="timeout" from="TriggerTimer" to="." method="_on_trigger_timer_timeout"]

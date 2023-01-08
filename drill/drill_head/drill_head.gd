@@ -43,3 +43,8 @@ func _input(event: InputEvent) -> void:
 func move_to_position(new_global_pos: Vector2) -> void:
 	rotation = global_position.angle_to_point(new_global_pos)
 	global_position = new_global_pos
+
+
+func _on_hurtbox_hurt(_actor) -> void:
+	can_move = false
+	Events.drill_damaged.emit()

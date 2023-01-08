@@ -1,35 +1,39 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=12 format=3 uid="uid://k34gjr2spnue"]
 
 [ext_resource type="Texture2D" uid="uid://ckhkgxkcdvj6p" path="res://drill/drill_head/drill_head.png" id="1_23m2b"]
 [ext_resource type="Script" path="res://drill/drill_head/drill_head.gd" id="1_a3xnk"]
 [ext_resource type="Texture2D" uid="uid://bma7sdtiqok0o" path="res://drill/light.png" id="3_al0gh"]
+[ext_resource type="PackedScene" uid="uid://biabuw3jhd423" path="res://common/hurtbox/hurtbox.tscn" id="4_0g5l1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q11b3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bp5l"]
 atlas = ExtResource("1_23m2b")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xp6ml"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_64njy"]
 atlas = ExtResource("1_23m2b")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2m6pc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_31j7s"]
 atlas = ExtResource("1_23m2b")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_157pp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrlk0"]
 atlas = ExtResource("1_23m2b")
 region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_lyqlk"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_x5f1q"]
 animations = [{
-"frames": [SubResource("AtlasTexture_q11b3"), SubResource("AtlasTexture_xp6ml"), SubResource("AtlasTexture_2m6pc"), SubResource("AtlasTexture_157pp")],
+"frames": [SubResource("AtlasTexture_0bp5l"), SubResource("AtlasTexture_64njy"), SubResource("AtlasTexture_31j7s"), SubResource("AtlasTexture_qrlk0")],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_81oc1"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_kjkml"]
 radius = 7.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gokjh"]
+size = Vector2(14, 14)
 
 [node name="DrillHead" type="CharacterBody2D"]
 light_mask = 2
@@ -37,11 +41,11 @@ collision_layer = 2
 script = ExtResource("1_a3xnk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-frames = SubResource("SpriteFrames_lyqlk")
+frames = SubResource("SpriteFrames_x5f1q")
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_81oc1")
+shape = SubResource("CircleShape2D_kjkml")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(16, 0)
@@ -52,3 +56,10 @@ energy = 0.5
 shadow_enabled = true
 texture = ExtResource("3_al0gh")
 texture_scale = 0.5
+
+[node name="Hurtbox" parent="." instance=ExtResource("4_0g5l1")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_gokjh")
+
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]

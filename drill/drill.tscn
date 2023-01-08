@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b4cq4gmbeovlg"]
 
 [ext_resource type="Script" path="res://drill/drill.gd" id="1_ikhwd"]
-[ext_resource type="PackedScene" path="res://drill/drill_head/drill_head.tscn" id="1_il7aq"]
+[ext_resource type="PackedScene" uid="uid://k34gjr2spnue" path="res://drill/drill_head/drill_head.tscn" id="1_il7aq"]
 
 [node name="Drill" type="Node2D"]
 light_mask = 2

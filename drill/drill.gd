@@ -2,12 +2,13 @@ class_name Drill
 extends Node2D
 
 
-const RETRACT_STEP_TIME: float = 0.25
+const RETRACT_STEP_TIME: float = 0.2
 
 @onready var _head: DrillHead = $Head
 @onready var _body: Node2D = $Body
 @onready var _original_head_rotation: float = _head.rotation
 var _body_nodes: Array[Node2D] = []
+var _retracting: bool = false
 
 @onready var body_scene: PackedScene = preload("res://drill/drill_body/drill_body.tscn")
 
@@ -24,11 +25,19 @@ func has_body() -> bool:
 
 
 func retract() -> void:
+	if _retracting:
+		return
+
+	_retracting = true
 	_head.can_move = false
+
 	while not _body_nodes.is_empty():
 		var node: Node2D = _body_nodes.back()
 		await get_tree().create_timer(RETRACT_STEP_TIME).timeout
+		if not is_instance_valid(_head):
+			return
 		_on_head_move_requested(_head.global_position, node.global_position)
+
 	_head.can_move = true
 
 

@@ -5,8 +5,10 @@ extends Area2D
 @onready var explosion_scene: PackedScene = preload("res://entities/explosion/explosion.tscn")
 @onready var explosion_sound: AudioStream = preload("res://entities/explosive/explosion.wav")
 
+@onready var _trigger_timer: Timer = $TriggerTimer
 
-func _on_body_entered(body: Node2D) -> void:
+
+func explode(triggering_actor: Node2D) -> void:
 	var offsets := [
 		Vector2.LEFT * Constants.GRID_SIZE,
 		Vector2.RIGHT * Constants.GRID_SIZE,
@@ -15,8 +17,9 @@ func _on_body_entered(body: Node2D) -> void:
 	]
 
 	# Only target directions from which the collider did not come.
-	var move_dir := Vector2.from_angle(body.rotation) * Constants.GRID_SIZE
-	offsets = offsets.filter(func (offset): return not offset.is_equal_approx(-move_dir))
+	if triggering_actor:
+		var move_dir := Vector2.from_angle(triggering_actor.rotation) * Constants.GRID_SIZE
+		offsets = offsets.filter(func (offset): return not offset.is_equal_approx(-move_dir))
 
 	if offsets.is_empty():
 		return
@@ -28,3 +31,16 @@ func _on_body_entered(body: Node2D) -> void:
 
 	AudioPlayer.play(explosion_sound)
 	queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	explode(body)
+
+
+func _on_hurtbox_hurt(_actor) -> void:
+	set_deferred("monitorable", false)
+	_trigger_timer.start()
+
+
+func _on_trigger_timer_timeout() -> void:
+	explode(null)
