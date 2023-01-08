@@ -9,6 +9,8 @@ extends Node2D
 
 func _ready() -> void:
 	Events.ore_collected.connect(_on_ore_collected)
+	Events.ore_destroyed.connect(_on_ore_destroyed)
+	Events.drill_damaged.connect(_on_drill_damaged)
 
 
 func _handle_completion() -> void:
@@ -21,3 +23,11 @@ func _handle_completion() -> void:
 func _on_ore_collected(_ore: Ore) -> void:
 	_remaining_ore -= 1
 	_handle_completion()
+
+
+func _on_ore_destroyed() -> void:
+	Events.level_failed.emit(self, "ore destroyed")
+
+
+func _on_drill_damaged() -> void:
+	Events.level_failed.emit(self, "drill damaged")

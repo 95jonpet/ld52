@@ -16,3 +16,8 @@ func _on_drill_moved(_drill: Drill, _old_pos: Vector2, new_pos: Vector2) -> void
 	Events.ore_collected.emit(self)
 	AudioPlayer.play(ore_pickup)
 	queue_free()
+
+
+func _on_hurtbox_hurt(_actor: Node2D) -> void:
+	Events.ore_destroyed.emit()
+	queue_free()

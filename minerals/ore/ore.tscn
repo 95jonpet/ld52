@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://smhunqd5w84e"]
+[gd_scene load_steps=6 format=3 uid="uid://smhunqd5w84e"]
 
 [ext_resource type="Texture2D" uid="uid://b6o7bb0v1cv0f" path="res://minerals/ore/ore.png" id="1_8cwxe"]
 [ext_resource type="Script" path="res://minerals/ore/ore.gd" id="1_uaa2q"]
+[ext_resource type="PackedScene" uid="uid://biabuw3jhd423" path="res://common/hurtbox/hurtbox.tscn" id="3_xiajx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aykx0"]
 size = Vector2(15, 15)
@@ -20,3 +21,10 @@ shape = SubResource("RectangleShape2D_aykx0")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_07fwf")
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_xiajx")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_aykx0")
+
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]

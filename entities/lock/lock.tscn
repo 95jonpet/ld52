@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://bnhv04gmov1t1"]
 
 [ext_resource type="Script" path="res://entities/lock/lock.gd" id="1_3sfe1"]
 [ext_resource type="Texture2D" uid="uid://jdvshqarubcu" path="res://entities/lock/lock.png" id="1_dqwav"]
+[ext_resource type="PackedScene" uid="uid://biabuw3jhd423" path="res://common/hurtbox/hurtbox.tscn" id="3_ba8j7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8c38"]
 size = Vector2(15, 15)
 
 [node name="Lock" type="StaticBody2D"]
-collision_layer = 4
+collision_layer = 20
 script = ExtResource("1_3sfe1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -22,4 +23,10 @@ collision_mask = 2
 [node name="DetectorCollisionShape" type="CollisionShape2D" parent="Detector"]
 shape = SubResource("RectangleShape2D_o8c38")
 
+[node name="Hurtbox" parent="." instance=ExtResource("3_ba8j7")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_o8c38")
+
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]

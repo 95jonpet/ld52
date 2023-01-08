@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc41vmxedbxyk"]
+
+[ext_resource type="Texture2D" uid="uid://cokw8cirb32d8" path="res://entities/explosive/explosive.png" id="1_n7183"]
+[ext_resource type="Script" path="res://entities/explosive/explosive.gd" id="1_oqgs4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4h6f"]
+size = Vector2(15, 15)
+
+[node name="Explosive" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_oqgs4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_n7183")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_c4h6f")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

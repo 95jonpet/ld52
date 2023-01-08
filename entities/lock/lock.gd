@@ -2,11 +2,11 @@ class_name Lock
 extends StaticBody2D
 
 
-const NO_COLLISIONS: int = 0
+const NO_COLLISIONS: int = 16  # Layer 5 = shield.
 
 var locked: bool = false: set = _set_locked
 
-@onready var lock_locked: AudioStream = preload("res://modifiers/lock/lock_locked.wav")
+@onready var lock_locked: AudioStream = preload("res://entities/lock/lock_locked.wav")
 @onready var _detector: Area2D = $Detector
 @onready var _original_collision_layer: int = collision_layer
 
@@ -34,3 +34,8 @@ func _on_detector_body_entered(body: Node2D) -> void:
 	if body is DrillHead:
 		var head: DrillHead = body
 		head.can_retract_on_next_move = false
+
+
+func _on_hurtbox_hurt(actor: Node2D) -> void:
+	actor.queue_free()
+	queue_free()
