@@ -3,6 +3,7 @@ extends Node
 
 
 @onready var _game: Game = $SubViewportContainer/SubViewport/Game
+@onready var _game_title: Control = $GameTitle
 @onready var _viewport_container: SubViewportContainer = $SubViewportContainer
 
 @onready var _level_labels: VBoxContainer = $LevelLabels
@@ -21,7 +22,12 @@ func _ready() -> void:
 
 	MusicPlayer.play(_songs)
 
+	await get_tree().create_timer(2.0).timeout
+	var tween := get_tree().create_tween()
 	_game.start()
+
+	tween.tween_property(_game_title, "modulate", Color.TRANSPARENT, 0.5)
+	await tween.finished
 
 
 func _input(event: InputEvent) -> void:

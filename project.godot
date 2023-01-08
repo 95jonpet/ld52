@@ -110,9 +110,10 @@ _global_script_class_icons={
 
 [application]
 
-config/name="ld52"
+config/name="Drillydown"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
+config/icon="res://settings/icon.png"
 
 [audio]
 
