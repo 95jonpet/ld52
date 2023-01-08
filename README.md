@@ -2,7 +2,8 @@
 
 ![Screenshot](screenshots/screenshot3_640x512.png)
 
-Descend into the darkest depths of hell in this small platformer game.  
+Harvest treasures of the underground in this small snake-inspired puzzle game.
+
 Move using `W`, `A`, `S`, `D` or the arrow keys.  
 Restart the level using the `R` key.
 
