@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://48h3wxixra"]
+[gd_scene load_steps=8 format=3 uid="uid://48h3wxixra"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_8cthv"]
 [ext_resource type="PackedScene" uid="uid://dnbt82s83lkeu" path="res://game/game.tscn" id="1_vqyok"]
@@ -18,6 +18,8 @@ void vertex() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t8tpl"]
 shader = SubResource("Shader_6shk1")
 shader_parameter/camera_offset = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bfv8a"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_8cthv")
@@ -113,3 +115,61 @@ theme_override_font_sizes/font_size = 48
 text = "Made by Peter Jonsson"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Stats" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Stats"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -45.0
+offset_right = 156.0
+grow_vertical = 0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Stats/MarginContainer"]
+offset_left = 12.0
+offset_right = 189.0
+offset_bottom = 127.0
+grow_vertical = 0
+
+[node name="LevelStepsLabel" type="Label" parent="Stats/MarginContainer/VBoxContainer"]
+offset_right = 177.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0.619608, 0.686275, 0.6, 1)
+theme_override_fonts/font = ExtResource("4_s1b7n")
+theme_override_font_sizes/font_size = 24
+text = "Level steps: 0"
+
+[node name="TotalStepsLabel" type="Label" parent="Stats/MarginContainer/VBoxContainer"]
+offset_top = 37.0
+offset_right = 177.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.619608, 0.686275, 0.6, 1)
+theme_override_fonts/font = ExtResource("4_s1b7n")
+theme_override_font_sizes/font_size = 24
+text = "Total steps: 0"
+
+[node name="HSeparator" type="HSeparator" parent="Stats/MarginContainer/VBoxContainer"]
+offset_top = 74.0
+offset_right = 177.0
+offset_bottom = 90.0
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxFlat_bfv8a")
+
+[node name="RestartHintLabel" type="Label" parent="Stats/MarginContainer/VBoxContainer"]
+offset_top = 94.0
+offset_right = 177.0
+offset_bottom = 127.0
+theme_override_colors/font_color = Color(0.619608, 0.686275, 0.6, 1)
+theme_override_fonts/font = ExtResource("4_s1b7n")
+theme_override_font_sizes/font_size = 24
+text = "Restart (R)"

@@ -15,6 +15,11 @@ func _ready() -> void:
 	Events.drill_moved.connect(_on_drill_moved)
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("restart"):
+		_restart_level()
+
+
 func start() -> void:
 	_goto_next_level()
 
@@ -42,6 +47,11 @@ func _goto_next_level() -> void:
 	Events.level_started.emit(_level)
 
 
+func _restart_level() -> void:
+	_level_index -= 1
+	_goto_next_level.call_deferred()
+
+
 func _on_drill_moved(drill: Drill, _old_pos: Vector2, _new_pos: Vector2) -> void:
 	if not _level_completed or drill.has_body():
 		return
@@ -56,5 +66,4 @@ func _on_level_completed() -> void:
 
 func _on_level_failed(level: Level, reason: String) -> void:
 	print_debug("Failed '%s': %s" % [level.level_name, reason])
-	_level_index -= 1
-	_goto_next_level.call_deferred()
+	_restart_level()

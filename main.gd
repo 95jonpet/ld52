@@ -10,6 +10,10 @@ extends Node
 @onready var _level_title_label: Label = $LevelLabels/LevelTitleLabel
 @onready var _level_description_label: Label = $LevelLabels/LevelDescriptionLabel
 
+@onready var _stats: Control = $Stats
+@onready var _stats_level_steps: Label = $Stats/MarginContainer/VBoxContainer/LevelStepsLabel
+@onready var _stats_total_steps: Label = $Stats/MarginContainer/VBoxContainer/TotalStepsLabel
+
 @onready var _songs: Array[AudioStream] = [
 	preload("res://music/main_title.ogg") as AudioStream,
 	preload("res://music/song1.ogg") as AudioStream,
@@ -21,6 +25,9 @@ func _ready() -> void:
 	Events.level_started.connect(_on_level_started)
 	Events.level_completed.connect(_on_level_completed)
 
+	Stats.stats_changed.connect(_update_stats)
+	_stats.modulate = Color.TRANSPARENT
+
 	MusicPlayer.play(_songs)
 
 	if not OS.is_debug_build():
@@ -29,6 +36,8 @@ func _ready() -> void:
 	_game.start()
 
 	tween.tween_property(_game_title, "modulate", Color.TRANSPARENT, 0.5 if not OS.is_debug_build() else 0.0)
+	tween.tween_property(_stats, "modulate", Color.WHITE, 0.5 if not OS.is_debug_build() else 0.0)
+
 	await tween.finished
 
 
@@ -42,6 +51,11 @@ func _input(event: InputEvent) -> void:
 		for ore in get_tree().get_nodes_in_group("Ore"):
 			ore.queue_free()
 		Events.level_completed.emit()
+
+
+func _update_stats() -> void:
+	_stats_level_steps.text = "Steps: %d" % Stats.level_steps
+	_stats_total_steps.text = "Total steps: %d" % Stats.total_steps
 
 
 func _on_camera_moved(camera: Camera, _old_pos: Vector2, new_pos: Vector2) -> void:

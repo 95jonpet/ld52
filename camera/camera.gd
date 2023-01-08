@@ -12,6 +12,7 @@ extends Camera2D
 
 func _ready() -> void:
 	Events.drill_moved.connect(_on_drill_moved)
+	Events.level_started.connect(_on_level_started)
 
 
 func _process(delta: float) -> void:
@@ -26,3 +27,7 @@ func _process(delta: float) -> void:
 
 func _on_drill_moved(_drill: Drill, _old_global_pos: Vector2, new_global_pos: Vector2) -> void:
 	target_position = new_global_pos
+
+
+func _on_level_started(_level: Level) -> void:
+	target_position = Vector2.ZERO
