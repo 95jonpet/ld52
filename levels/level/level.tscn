@@ -20,6 +20,7 @@ offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0.0235294, 0.0313726, 0.0392157, 1)
+metadata/_edit_lock_ = true
 
 [node name="Ground" type="ColorRect" parent="."]
 anchors_preset = 5
@@ -31,12 +32,14 @@ offset_right = 320.0
 offset_bottom = 352.0
 grow_horizontal = 2
 color = Color(0.0313726, 0.117647, 0.14902, 1)
+metadata/_edit_lock_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_qk403")
 format = 2
 
 [node name="Drill" parent="." instance=ExtResource("2_rpuwg")]
+metadata/_edit_lock_ = true
 
 [node name="Borders" type="Node2D" parent="."]
 

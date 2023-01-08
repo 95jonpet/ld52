@@ -14,4 +14,6 @@ signal drill_damaged()
 signal ore_collected(ore: Ore)
 signal ore_destroyed()
 
+signal snail_killed()
+
 signal mineral_drilled(mineral: Node2D)

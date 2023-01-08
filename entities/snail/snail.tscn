@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbrn7eqkbfupb"]
+
+[ext_resource type="Script" path="res://entities/snail/snail.gd" id="1_tgmoc"]
+[ext_resource type="Texture2D" uid="uid://c7ny8xkhcjcfn" path="res://entities/snail/snail.png" id="2_3okui"]
+[ext_resource type="Texture2D" uid="uid://bma7sdtiqok0o" path="res://drill/light.png" id="3_dxlbx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kyejj"]
+radius = 8.0
+
+[node name="Snail" type="CharacterBody2D"]
+script = ExtResource("1_tgmoc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3okui")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kyejj")
+
+[node name="TargetRay" type="RayCast2D" parent="."]
+target_position = Vector2(16, 0)
+collision_mask = 7
+
+[node name="TargetFloorRay" type="RayCast2D" parent="."]
+position = Vector2(16, 0)
+target_position = Vector2(0, 16)
+collision_mask = 4
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 3)
+color = Color(0.501961, 0.603922, 0.501961, 1)
+energy = 0.25
+shadow_enabled = true
+texture = ExtResource("3_dxlbx")
+texture_scale = 0.25
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 10
+monitorable = false
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_kyejj")
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

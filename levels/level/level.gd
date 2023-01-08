@@ -11,6 +11,7 @@ func _ready() -> void:
 	Events.ore_collected.connect(_on_ore_collected)
 	Events.ore_destroyed.connect(_on_ore_destroyed)
 	Events.drill_damaged.connect(_on_drill_damaged)
+	Events.snail_killed.connect(_on_snail_killed)
 
 	var ores := 0
 	for ore in get_tree().get_nodes_in_group("Ore"):
@@ -38,3 +39,7 @@ func _on_ore_destroyed() -> void:
 
 func _on_drill_damaged() -> void:
 	Events.level_failed.emit(self, "the drill was damaged")
+
+
+func _on_snail_killed() -> void:
+	Events.level_failed.emit(self, "a snail was killed")

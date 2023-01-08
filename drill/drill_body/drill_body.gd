@@ -1,5 +1,5 @@
 class_name DrillBody
-extends Node2D
+extends StaticBody2D
 
 
 var invincible: bool = false: set = _set_invincible

@@ -1,19 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmcjivm1yuteb"]
+[gd_scene load_steps=6 format=3 uid="uid://bmcjivm1yuteb"]
 
 [ext_resource type="Script" path="res://drill/drill_body/drill_body.gd" id="1_fw117"]
 [ext_resource type="Texture2D" uid="uid://rl7g1xoavt84" path="res://drill/drill_body/drill_body.png" id="1_ivax3"]
 [ext_resource type="PackedScene" uid="uid://biabuw3jhd423" path="res://common/hurtbox/hurtbox.tscn" id="2_jatgm"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3lwvk"]
+size = Vector2(14, 14)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7mis"]
 size = Vector2(14, 14)
 
-[node name="DrillBody" type="Node2D"]
+[node name="DrillBody" type="StaticBody2D"]
 light_mask = 2
 visibility_layer = 2
+collision_layer = 2
 script = ExtResource("1_fw117")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ivax3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3lwvk")
 
 [node name="Hurtbox" parent="." instance=ExtResource("2_jatgm")]
 
