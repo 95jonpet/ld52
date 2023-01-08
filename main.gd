@@ -10,6 +10,9 @@ extends Node
 @onready var _level_title_label: Label = $LevelLabels/LevelTitleLabel
 @onready var _level_description_label: Label = $LevelLabels/LevelDescriptionLabel
 
+@onready var _level_failed: Control = $LevelFailed
+@onready var _level_failed_reason: Control = $LevelFailed/VBoxContainer/LevelFailedReasonLabel
+
 @onready var _stats: Control = $Stats
 @onready var _stats_level_steps: Label = $Stats/MarginContainer/VBoxContainer/LevelStepsLabel
 @onready var _stats_total_steps: Label = $Stats/MarginContainer/VBoxContainer/TotalStepsLabel
@@ -23,12 +26,15 @@ extends Node
 func _ready() -> void:
 	Events.camera_moved.connect(_on_camera_moved)
 	Events.level_started.connect(_on_level_started)
+	Events.level_failed.connect(_on_level_failed)
 	Events.level_completed.connect(_on_level_completed)
 
 	Stats.stats_changed.connect(_update_stats)
 	_stats.modulate = Color.TRANSPARENT
 
 	MusicPlayer.play(_songs)
+
+	_level_failed.modulate = Color.TRANSPARENT
 
 	if not OS.is_debug_build():
 		await get_tree().create_timer(2.0).timeout
@@ -78,3 +84,11 @@ func _on_level_started(level: Level) -> void:
 func _on_level_completed() -> void:
 	_level_title_label.text = ""
 	_level_description_label.text = ""
+
+
+func _on_level_failed(_level: Level, reason: String) -> void:
+	_level_failed_reason.text = reason
+
+	await get_tree().create_tween().tween_property(_level_failed, "modulate", Color.WHITE, 0.25).finished
+	await get_tree().create_timer(1).timeout
+	await get_tree().create_tween().tween_property(_level_failed, "modulate", Color.TRANSPARENT, 0.25).finished

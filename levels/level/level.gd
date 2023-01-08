@@ -33,8 +33,8 @@ func _on_ore_collected(_ore: Ore) -> void:
 
 
 func _on_ore_destroyed() -> void:
-	Events.level_failed.emit(self, "ore destroyed")
+	Events.level_failed.emit(self, "some ore was destroyed")
 
 
 func _on_drill_damaged() -> void:
-	Events.level_failed.emit(self, "drill damaged")
+	Events.level_failed.emit(self, "the drill was damaged")
