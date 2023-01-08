@@ -32,7 +32,6 @@ func _input(event: InputEvent) -> void:
 		_goto_next_level()
 
 
-
 func start() -> void:
 	_goto_next_level()
 
