@@ -27,7 +27,7 @@ _global_script_classes=[{
 "base": "CharacterBody2D",
 "class": &"DrillHead",
 "language": &"GDScript",
-"path": "res://drill/drill_head.gd"
+"path": "res://drill/drill_head/drill_head.gd"
 }, {
 "base": "Area2D",
 "class": &"DropArea",
@@ -38,11 +38,6 @@ _global_script_classes=[{
 "class": &"Game",
 "language": &"GDScript",
 "path": "res://game/game.gd"
-}, {
-"base": "CharacterBody2D",
-"class": &"Harvester",
-"language": &"GDScript",
-"path": "res://robots/harvester/harvester.gd"
 }, {
 "base": "Node2D",
 "class": &"Level",
@@ -59,11 +54,6 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://main.gd"
 }, {
-"base": "Draggable",
-"class": &"Marker",
-"language": &"GDScript",
-"path": "res://planning/marker/marker.gd"
-}, {
 "base": "StaticBody2D",
 "class": &"NoClip",
 "language": &"GDScript",
@@ -79,11 +69,6 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://minerals/rock/rock.gd"
 }, {
-"base": "DropArea",
-"class": &"Slot",
-"language": &"GDScript",
-"path": "res://planning/slot/slot.gd"
-}, {
 "base": "StaticBody2D",
 "class": &"Toggle",
 "language": &"GDScript",
@@ -96,15 +81,12 @@ _global_script_class_icons={
 "DrillHead": "",
 "DropArea": "",
 "Game": "",
-"Harvester": "",
 "Level": "",
 "Lock": "",
 "Main": "",
-"Marker": "res://planning/marker/marker.png",
 "NoClip": "",
 "Ore": "",
 "Rock": "",
-"Slot": "",
 "Toggle": ""
 }
 

@@ -19,6 +19,7 @@ extends Node
 func _ready() -> void:
 	Events.camera_moved.connect(_on_camera_moved)
 	Events.level_started.connect(_on_level_started)
+	Events.level_completed.connect(_on_level_completed)
 
 	MusicPlayer.play(_songs)
 
@@ -57,3 +58,8 @@ func _on_camera_moved(camera: Camera, _old_pos: Vector2, new_pos: Vector2) -> vo
 func _on_level_started(level: Level) -> void:
 	_level_title_label.text = level.level_name
 	_level_description_label.text = level.description
+
+
+func _on_level_completed() -> void:
+	_level_title_label.text = ""
+	_level_description_label.text = ""

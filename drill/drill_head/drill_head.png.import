@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uqi1pn2ghpwv"
-path="res://.godot/imported/harvester.png-e4b3f5fe887e98515563647ac8e702d2.ctex"
+uid="uid://ckhkgxkcdvj6p"
+path="res://.godot/imported/drill_head.png-d0ccc0270dc65420ad0a3907ff4973bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://robots/harvester/harvester.png"
-dest_files=["res://.godot/imported/harvester.png-e4b3f5fe887e98515563647ac8e702d2.ctex"]
+source_file="res://drill/drill_head/drill_head.png"
+dest_files=["res://.godot/imported/drill_head.png-d0ccc0270dc65420ad0a3907ff4973bb.ctex"]
 
 [params]
 

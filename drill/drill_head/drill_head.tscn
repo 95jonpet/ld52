@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bb5hph1aixo7e"]
+[gd_scene load_steps=10 format=3]
 
-[ext_resource type="Texture2D" uid="uid://ckhkgxkcdvj6p" path="res://drill/drill_head.png" id="1_23m2b"]
-[ext_resource type="Script" path="res://drill/drill_head.gd" id="1_a3xnk"]
+[ext_resource type="Texture2D" uid="uid://ckhkgxkcdvj6p" path="res://drill/drill_head/drill_head.png" id="1_23m2b"]
+[ext_resource type="Script" path="res://drill/drill_head/drill_head.gd" id="1_a3xnk"]
 [ext_resource type="Texture2D" uid="uid://bma7sdtiqok0o" path="res://drill/light.png" id="3_al0gh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q11b3"]

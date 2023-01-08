@@ -9,7 +9,7 @@ const RETRACT_STEP_TIME: float = 0.25
 @onready var _original_head_rotation: float = _head.rotation
 var _body_nodes: Array[Node2D] = []
 
-@onready var body_scene: PackedScene = preload("res://drill/drill_body.tscn")
+@onready var body_scene: PackedScene = preload("res://drill/drill_body/drill_body.tscn")
 
 @onready var drill_moved: AudioStream = preload("res://drill/drill_moved.wav")
 @onready var drill_blocked: AudioStream = preload("res://drill/drill_blocked.wav")

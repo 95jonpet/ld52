@@ -2,7 +2,7 @@ class_name Game
 extends Node2D
 
 
-@onready var _level: Level = $Level
+@onready var _level: Node2D = $Level  # Type is Level after starting the game.
 var _level_index: int = 0
 var _level_completed: bool = false
 
